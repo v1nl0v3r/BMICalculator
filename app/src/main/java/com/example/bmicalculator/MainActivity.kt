@@ -15,6 +15,7 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
+import com.example.bmicalculator.composables.BMIBar
 import com.example.bmicalculator.composables.RadioInput
 import com.example.bmicalculator.composables.TextInput
 import com.example.bmicalculator.data.classes.BMIForm
@@ -76,7 +77,9 @@ class MainActivity : ComponentActivity() {
                             modifier = Modifier.padding()
                         )
 
-                        Text(text = result.toString())
+                        Text(text = result?.toString() ?: "0")
+
+                        BMIBar(value = result ?: 0f)
 
                         Button(
                             onClick = {
